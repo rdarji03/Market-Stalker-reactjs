@@ -1,9 +1,24 @@
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Navbar from "./Component/Navbar/Navbar";
+import Home from "./Component/HOme/Home";
+import Stock from "./Component/Stocks/Stock"
+import News from "./Component/News/News";
+import About from "./Component/About/About";
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline text-red-400">Hello world!</h1>
+      <Router>
+          <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/stocks" element={<Stock/>} />
+          <Route path="/news" element={<News />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Router>
     </>
   );
 }
