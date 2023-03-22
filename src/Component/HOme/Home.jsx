@@ -1,9 +1,10 @@
 import React from 'react';
+import { useQuery } from 'react-query';
 
 const Home = () => {
     return (
-        <div>
-            home
+        <div className='stock-container' > 
+            
         </div>
     );
 }
