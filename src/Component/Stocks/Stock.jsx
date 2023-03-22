@@ -14,8 +14,8 @@ const Stock = () => {
  
   return (
     <div className="stock-detail-container">
-      <div className="input-data flex justify-center">
-        <form>
+      <div className="input-data flex justify-center ">
+        <form className="my-3">
           <input
             type="text"
             placeholder="Search Stock"
