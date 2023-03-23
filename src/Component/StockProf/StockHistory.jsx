@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 const StockHistory = ({ stock_name }) => {
-  const [stockdata, setstockdata] = useState();
+  const [stockdetail, setstockdetail] = useState();
   if (stock_name === undefined) {
     stock_name = "AAPL";
   }
@@ -18,9 +18,9 @@ const StockHistory = ({ stock_name }) => {
       };
 
       const stock_info_url = `https://twelve-data1.p.rapidapi.com/time_series?symbol=${stock_name}&interval=1day&outputsize=1&format=json`;
-      const current_weather_response = await fetch(stock_info_url,options);
-      const stock_data = await current_weather_response.json();
-      setstockdata(stock_data);
+      const stock_news_url_response = await fetch(stock_info_url,options);
+      const stock_data = await stock_news_url_response.json();
+      setstockdetail(stock_data);
       console.log(stock_data);
     };
     fetchData();
@@ -28,14 +28,14 @@ const StockHistory = ({ stock_name }) => {
 
   return (
     <>
-      <section className="stock_prof flex justify-center my-[2rem]">
-        <div className="stock_card w-[17rem] p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700 flex justify-center flex-col items-center">
-          <div className="stock_name ">
-            <h1 className="text-xl font-bold leading-none text-gray-900 dark:text-white py-1">{stockdata?.meta?.symbol}</h1>
+      <section className="stock_prof flex justify-center  my-4">
+        <div className="stock_card w-[17rem]  bg-white border border-gray-200 rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700 flex justify-center flex-col items-center">
+          <div className="stock_name bg-blue-900 w-[100%] border border-gray-200 rounded-t-lg p-2">
+            <h1 className="text-xl font-bold leading-none text-white dark:text-white text-center ">{stockdetail?.meta?.symbol}</h1>
           </div>
-          <div className="stock_detail ">
+          <div className="stock_detail p-4">
           {
-            stockdata?.values.map((data)=>{
+            stockdetail?.values.map((data)=>{
               return (
                 <>
                 <h4 className="md:py-1">High : {parseFloat(data?.high).toFixed(2)}$</h4>
@@ -46,9 +46,7 @@ const StockHistory = ({ stock_name }) => {
                 </>
               )
             })
-          }
-
-            
+          }            
           </div>
         </div>
       </section>

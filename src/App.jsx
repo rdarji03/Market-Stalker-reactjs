@@ -9,9 +9,9 @@ import About from "./Component/About/About";
 function App() {
   return (
     <>
-      <Router>
+      <Router >
         <Navbar />
-        <div className="route-container bg-gray-100 min-h-[100vh]">
+        <div className="route-container">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/stocks" element={<Stock />} />

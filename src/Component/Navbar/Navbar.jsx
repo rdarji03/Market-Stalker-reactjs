@@ -25,7 +25,7 @@ const Navbar = () => {
 
   return (
     <>
-      <section className="main-nav bg-sky-800 h-12 static w-[100%] flex items-center justify-center">
+      <section className="main-nav bg-blue-900 h-12 fixed w-[100%] flex items-center justify-center">
         <div className="nav-content flex items-center w-[80%] justify-between">
           <div className="nav-banner">
             <h1 className="text-2xl text-white">
@@ -34,7 +34,7 @@ const Navbar = () => {
           </div>
           <div
             className={
-              "nav-pages   md:static md:min-h-fit md:p-0  transition-all duration-500 absolute top-[3rem] min-h-[100vh] p-[3rem]  bg-sky-800 " +
+              "nav-pages   md:static md:min-h-fit md:p-0  transition-all duration-500 absolute top-[3rem] min-h-[100vh] p-[3rem]  bg-blue-900 " +
               (menuposition)
             }
           >
