@@ -36,7 +36,7 @@ const Stocknews = ({ stock_name }) => {
                 <img
                   src={news_data?.image_url}
                   alt=""
-                  className="w-[100%] h-[10rem] border rounded-lg"
+                  className="w-[100%] h-[10rem] border rounded-t-lg"
                 />
               </div>
               <div className="news_details p-[0.5rem] flex flex-col justify-center h-[10rem]">
