@@ -25,7 +25,7 @@ const Navbar = () => {
 
   return (
     <>
-      <section className="main-nav bg-blue-900 h-12 fixed w-[100%] flex items-center justify-center">
+      <section className="main-nav bg-blue-900 h-12 fixed w-[100%] flex items-center justify-center shadow-[0px_5px_8px_0px_rgba(0,0,0,0.3)] shadow-gray-950	">
         <div className="nav-content flex items-center w-[80%] justify-between">
           <div className="nav-banner">
             <h1 className="text-2xl text-white">

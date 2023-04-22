@@ -12,7 +12,6 @@ const Stocknews = ({ stock_name }) => {
       const stock_news_response = await fetch(stock_news_url);
       const stock_news = await stock_news_response.json();
       setnews(stock_news.results);
-      console.log(stock_news);
     };
     fetchData();
   }, [stock_name]);
@@ -23,25 +22,25 @@ const Stocknews = ({ stock_name }) => {
           Trending NEWS
         </h1>
       </div>
-      <div className="news_container flex justify-center">
+      <div className="news_container flex justify-center md:flex-row md:items-start md:flex-wrap flex-col items-center">
         {news?.map((news_data) => {
           return (
+            
             <a
               target="_blank"
               rel="noreferrer"
               href={news_data?.article_url}
-              className="newscard w-[17rem]  bg-white border border-gray-200 rounded-lg shadow m-[1rem] flex flex-col justify-between"
+              className="newscard w-[17rem]  bg-white border border-gray-900 rounded-lg shadow m-[0.5rem] h-[20rem]"
             >
-              <div className="news_img">
+              <div className="news_img ">
                 <img
                   src={news_data?.image_url}
                   alt=""
-                  className="w-[100%] h-[10rem]"
+                  className="w-[100%] h-[10rem] border rounded-lg"
                 />
               </div>
-              <div className="news_details p-[0.5rem]">
-                <div className="news_title">{news_data?.title}</div>
-                
+              <div className="news_details p-[0.5rem] flex flex-col justify-center h-[10rem]">
+                <div className="news_title">{news_data?.title}</div>               
               </div>
             </a>
           );

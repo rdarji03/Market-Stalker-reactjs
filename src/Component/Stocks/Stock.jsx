@@ -6,7 +6,7 @@ const Stock = () => {
   const [stock, setstockname] = useState();
 
   function fetchStockName(e) {
-    getstockname(e.target.value);
+    getstockname(e.target.value.toUpperCase());
   }
   function setStockName() {
     setstockname(stockname);
@@ -18,11 +18,13 @@ const Stock = () => {
         <div className="input-data flex justify-center ">
           <form className="mt-[4rem]">
             <input
+            
               type="text"
-              placeholder="Search Stock"
-              className="border border-black outline-1 p-1 rounded"
+              placeholder="Enter Stock Name..."
+              className="border border-black outline-1 p-1 rounded w-[9rem] md:w-auto"
               onChange={fetchStockName}
               value={stockname || ""}
+              
             />
             <button
               type="submit"
@@ -32,7 +34,7 @@ const Stock = () => {
                 setStockName();
               }}
             >
-              Search Stock
+              Search
             </button>
           </form>
         </div>
