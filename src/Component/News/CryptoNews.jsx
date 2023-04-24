@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-const TopNews = () => {
-  const [stock_top_news, set_top_stock_news] = useState();
+const CryptoNews = () => {
+  const [crypto_news, set_crypto_news] = useState();
+
   useEffect(() => {
     const fetchData = async () => {
       const options = {
@@ -13,24 +14,21 @@ const TopNews = () => {
           "X-RapidAPI-Host": "global-stock-market-api-data.p.rapidapi.com",
         },
       };
-      const stock_top_news_url = `https://global-stock-market-api-data.p.rapidapi.com/news/most_popular_news`;
-      const stock_top_news_url_response = await fetch(
-        stock_top_news_url,
-        options
-      );
-      const stock_news = await stock_top_news_url_response.json();
-      set_top_stock_news(stock_news);
+      const crypto_news_url = `https://global-stock-market-api-data.p.rapidapi.com/news/cryptocurrency_news/1`;
+      const crypto_news_url_response = await fetch(crypto_news_url, options);
+      const crypto_news = await crypto_news_url_response.json();
+      set_crypto_news(crypto_news);
     };
     fetchData();
   }, []);
 
   return (
-    <section className="news_container py-[4rem]">
+    <section className="crypto_news_container py-[4rem]">
       <div className="news_box ">
         <div className="top_news">
-          <h1 className=" text-center font-bold text-2xl ">Top-NEWS</h1>
+          <h1 className=" text-center font-bold text-2xl ">Crypto-NEWS</h1>
           <div className="top-news-container flex justify-center flex-wrap md:flex-row flex-col items-center">
-            {stock_top_news?.slice(0, 5).map((news_data) => {
+            {crypto_news?.slice(0, 5).map((news_data) => {
               return (
                 <a
                   href={news_data?.newsUrl}
@@ -60,4 +58,4 @@ const TopNews = () => {
   );
 };
 
-export default TopNews;
+export default CryptoNews;

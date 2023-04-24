@@ -1,36 +1,34 @@
 import React, { useEffect, useState } from "react";
 
-const TopNews = () => {
-  const [stock_top_news, set_top_stock_news] = useState();
-  useEffect(() => {
-    const fetchData = async () => {
-      const options = {
-        method: "GET",
-        headers: {
-          "content-type": "application/octet-stream",
-          "X-RapidAPI-Key":
-            "2458ee7fcemsh7ecda95d97d8826p1c0687jsn29e1368376f0",
-          "X-RapidAPI-Host": "global-stock-market-api-data.p.rapidapi.com",
-        },
-      };
-      const stock_top_news_url = `https://global-stock-market-api-data.p.rapidapi.com/news/most_popular_news`;
-      const stock_top_news_url_response = await fetch(
-        stock_top_news_url,
-        options
-      );
-      const stock_news = await stock_top_news_url_response.json();
-      set_top_stock_news(stock_news);
-    };
-    fetchData();
-  }, []);
+const StockNews = () => {
+    const [stock_news, set_stock_news] = useState();
 
-  return (
-    <section className="news_container py-[4rem]">
+    useEffect(() => {
+      const fetchData = async () => {
+        const options = {
+          method: "GET",
+          headers: {
+            "content-type": "application/octet-stream",
+            "X-RapidAPI-Key":
+              "2458ee7fcemsh7ecda95d97d8826p1c0687jsn29e1368376f0",
+            "X-RapidAPI-Host": "global-stock-market-api-data.p.rapidapi.com",
+          },
+        };
+        const stock_news_url = `https://global-stock-market-api-data.p.rapidapi.com/news/stock_market_news/1`;
+        const stock_news_url_response = await fetch(stock_news_url, options);
+        const stock_news_data= await stock_news_url_response.json();
+        set_stock_news(stock_news_data);
+      };
+      fetchData();
+    }, []);
+
+    return (
+        <section className="stock_news_container py-[4rem]">
       <div className="news_box ">
         <div className="top_news">
-          <h1 className=" text-center font-bold text-2xl ">Top-NEWS</h1>
+          <h1 className=" text-center font-bold text-2xl ">Stock-NEWS</h1>
           <div className="top-news-container flex justify-center flex-wrap md:flex-row flex-col items-center">
-            {stock_top_news?.slice(0, 5).map((news_data) => {
+            {stock_news?.slice(0, 5).map((news_data) => {
               return (
                 <a
                   href={news_data?.newsUrl}
@@ -57,7 +55,7 @@ const TopNews = () => {
         </div>
       </div>
     </section>
-  );
-};
+    );
+}
 
-export default TopNews;
+export default StockNews;
