@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const News = () => {
-  const [stock_top_news, set_stock_news] = useState();
+  const [stock_top_news, set_top_stock_news] = useState();
   useEffect(() => {
     const fetchData = async () => {
       const options = {
@@ -19,22 +19,20 @@ const News = () => {
         options
       );
       const stock_news = await stock_top_news_url_response.json();
-      set_stock_news(stock_news);
-      console.log(stock_news.slice(0, 5));
+      set_top_stock_news(stock_news);
     };
     fetchData();
   }, []);
 
   return (
-    <section className="news_container">
-      <div className="news_heading ">Today's NEWS</div>
-      <div className="news_box  my-[2rem]">
+    <section className="news_container py-[4rem]">
+      <div className="news_box ">
         <div className="top_news">
-          <h1 className=" text-center font-bold text-2xl">Top-NEWS</h1>
+          <h1 className=" text-center font-bold text-2xl ">Top-NEWS</h1>
           <div className="top-news-container flex justify-center flex-wrap md:flex-row flex-col items-center">
             {stock_top_news?.slice(0, 5).map((news_data) => {
               return (
-                <a href={news_data?.newsUrl}  className=" border rounded-lg border-blue-400 bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 w-[15rem] m-2 flex flex-col justify-between ">
+                <a href={news_data?.newsUrl} target="_blank" rel="noreferrer" className=" border rounded-lg border-blue-400 bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 w-[15rem] m-2 flex flex-col justify-between ">
                   <div class="border-b-2 border-neutral-100 px-6 py-3 dark:border-neutral-600 dark:text-neutral-50 ">
                     {news_data?.postedBy}
                   </div>
@@ -53,10 +51,7 @@ const News = () => {
               );
             })}{" "}
           </div>
-        </div>
-        <div className="stock_news"></div>
-        <div className="bse_news"></div>
-        <div className="crypto_news"></div>
+        </div>        
       </div>
     </section>
   );
