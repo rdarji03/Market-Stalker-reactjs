@@ -5,16 +5,19 @@ import Home from "./Component/HOme/Home";
 import Stock from "./Component/Stocks/Stock";
 import News from "./Component/News/News";
 import About from "./Component/About/About";
+import MutualFunds from "./Component/HOme/MutualFunds";
 
 function App() {
   return (
     <>
-      <Router >
+      <Router>
         <Navbar />
         <div className="route-container">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/stocks" element={<Stock />} />
+            <Route path="/" element={<Home />}>
+              <Route path="/home/mutualfunds" element={<MutualFunds />} />
+            </Route>
+            <Route path="/stocks" element={<Stock />}/>
             <Route path="/news" element={<News />} />
             <Route path="/about" element={<About />} />
           </Routes>

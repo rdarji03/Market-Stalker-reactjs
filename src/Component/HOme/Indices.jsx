@@ -1,0 +1,81 @@
+import React, { useEffect, useState } from "react";
+
+const Indices = () => {
+  const [stock_index, set_stock_indices] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const options = {
+        method: "GET",
+        headers: {
+          "content-type": "application/octet-stream",
+          "X-RapidAPI-Key":
+            "2458ee7fcemsh7ecda95d97d8826p1c0687jsn29e1368376f0",
+          "X-RapidAPI-Host": "global-stock-market-api-data.p.rapidapi.com",
+        },
+      };
+      const stock_indices_url = `https://global-stock-market-api-data.p.rapidapi.com/major_global_indices_by_price`;
+      const stock_indices_url_response = await fetch(
+        stock_indices_url,
+        options
+      );
+      const stock_indices_data = await stock_indices_url_response.json();
+      console.log(stock_indices_data);
+      set_stock_indices(stock_indices_data);
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <section className="indices_container flex justify-center">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-fit">
+        <table className="w-full text-sm text-left">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr className="md:flex">
+              <th scope="col" className="px-6 py-3 md:flex md:justify-center md:w-[12rem]">
+                Index Name
+              </th>
+              <th scope="col" className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
+                high
+              </th>
+              <th scope="col" className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
+                low
+              </th>
+              <th scope="col" className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
+                last
+              </th>
+              <th scope="col" className="px-6 py-3 md:flex md:justify-center md:w-[12rem]">
+                Change Percentage
+              </th>
+              <th scope="col" className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
+                Time
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {stock_index?.slice(0,10).map((index_data) => {
+              return (
+                <tr className="bg-white border-b md:flex">
+                  <th
+                    scope="row"
+                    className="px-6 py-4 font-medium md:flex md:justify-center md:w-[12rem]"
+                  >
+                    {index_data?.name}
+                  </th>
+                  <td className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">{index_data?.high}</td>
+                  <td className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">{index_data?.low}</td>
+                  <td className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">{index_data?.last}</td>
+                  <td className="px-6 py-3 md:flex md:justify-center md:w-[12rem]">{index_data?.changePercentage}</td>
+                  <td className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">{index_data?.time}</td>
+
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+};
+
+export default Indices;
