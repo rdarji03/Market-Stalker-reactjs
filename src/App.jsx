@@ -1,11 +1,12 @@
-import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
 import Navbar from "./Component/Navbar/Navbar";
 import Home from "./Component/HOme/Home";
 import Stock from "./Component/Stocks/Stock";
 import News from "./Component/News/News";
 import About from "./Component/About/About";
-import MutualFunds from "./Component/HOme/MutualFunds";
+import Cryptos from "./Component/HOme/Cryptos";
+import Indices from "./Component/HOme/Indices";
 
 function App() {
   return (
@@ -14,10 +15,11 @@ function App() {
         <Navbar />
         <div className="route-container">
           <Routes>
-            <Route path="/" element={<Home />}>
-              <Route path="/home/mutualfunds" element={<MutualFunds />} />
+            <Route path="/" element={<Stock />} />
+            <Route path="/market" element={<Home />}>
+              <Route path="indices" element={<Indices />} />
+              <Route path="cryptos" element={<Cryptos />} />
             </Route>
-            <Route path="/stocks" element={<Stock />}/>
             <Route path="/news" element={<News />} />
             <Route path="/about" element={<About />} />
           </Routes>

@@ -1,11 +1,10 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import Indices from "./Indices";
 
 const Home = () => {
   return (
     <>
-      <section className="home_nav p-[3rem]">
+      <section className="home_nav pt-[3rem]">
         <nav className="bg-white border-gray-200  md:flex md:justify-center ">
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             
@@ -35,7 +34,7 @@ const Home = () => {
               <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-white  md:dark:bg-gray-900 dark:border-gray-700">
                 <li className="my-1">
                   <Link
-                    to="/"
+                    to="/market/indices"
                     className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
                     aria-current="page"
                   >
@@ -44,11 +43,11 @@ const Home = () => {
                 </li>
                 <li  className="my-1">
                 <Link
-                    to="mutualfunds"
+                    to="/market/cryptos"
                     className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
                     aria-current="page"
                   >
-                    Stocks Index
+                    Cryptos
                   </Link>
                 </li>
                 <li className="my-1">
@@ -64,10 +63,8 @@ const Home = () => {
             </div>
           </div>
         </nav>
-
-        <Indices />
-        <Outlet />
       </section>
+    <Outlet />
     </>
   );
 };

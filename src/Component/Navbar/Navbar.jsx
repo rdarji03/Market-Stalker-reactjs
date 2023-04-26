@@ -39,12 +39,13 @@ const Navbar = () => {
             }
           >
             <ul className="nav-list flex flex-col  text-white md:gap-[5rem] md:flex-row">
-              <li className="my-3">
-                <Link to="/">Home</Link>
+            <li className="my-3">
+                <Link to="/">Stocks</Link>
               </li>
               <li className="my-3">
-                <Link to="/stocks">Stocks</Link>
+                <Link to="/market/indices">Market</Link>
               </li>
+              
               <li className="my-3">
                 <Link to="/news">News</Link>
               </li>
@@ -69,6 +70,7 @@ const Navbar = () => {
           />
         </div>
       </section>
+      
     </>
   );
 };
