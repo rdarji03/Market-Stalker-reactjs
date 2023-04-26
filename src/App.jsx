@@ -7,6 +7,7 @@ import News from "./Component/News/News";
 import About from "./Component/About/About";
 import Cryptos from "./Component/HOme/Cryptos";
 import Indices from "./Component/HOme/Indices";
+import IndiaStock from "./Component/HOme/IndiaStock";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/market" element={<Home />}>
               <Route path="indices" element={<Indices />} />
               <Route path="cryptos" element={<Cryptos />} />
+              <Route path="indianstock" element={<IndiaStock />} />
             </Route>
             <Route path="/news" element={<News />} />
             <Route path="/about" element={<About />} />
