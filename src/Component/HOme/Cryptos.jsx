@@ -26,7 +26,7 @@ const Cryptos = () => {
     fetchData();
   }, []);
   return (
-    <section className="indices_container flex justify-center">
+    <section className="indices_container flex justify-center my-2">
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-fit">
         <table className="w-full text-sm text-left">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50">

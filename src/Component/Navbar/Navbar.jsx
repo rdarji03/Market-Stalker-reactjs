@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import menu_icon from "../../Asset/navicon/menu.png";
-import close_icon from "../../Asset/navicon/close.png";
+  import menu_icon from "../../Asset/navicon/menu.png";
+  import close_icon from "../../Asset/navicon/close.png";
 
 const Navbar = () => {
   const [menubtn, setmenubtn] = useState("block");

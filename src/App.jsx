@@ -8,13 +8,14 @@ import About from "./Component/About/About";
 import Cryptos from "./Component/HOme/Cryptos";
 import Indices from "./Component/HOme/Indices";
 import IndiaStock from "./Component/HOme/IndiaStock";
+import Footer from "./Component/Footer/Footer";
 
 function App() {
   return (
     <>
       <Router>
         <Navbar />
-        <div className="route-container">
+        <div className="route-container min-h-[100vh] flex flex-col justify-center">
           <Routes>
             <Route path="/" element={<Stock />} />
             <Route path="/market" element={<Home />}>
@@ -26,6 +27,7 @@ function App() {
             <Route path="/about" element={<About />} />
           </Routes>
         </div>
+        <Footer/>
       </Router>
     </>
   );
