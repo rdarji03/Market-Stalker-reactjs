@@ -20,7 +20,7 @@ const Stock = () => {
             <input
             
               type="text"
-              placeholder="Enter Stock Name..."
+              placeholder="Enter Stock Symbol..."
               className="border border-black outline-1 p-1 rounded w-[9rem] md:w-auto"
               onChange={fetchStockName}
               value={stockname || ""}

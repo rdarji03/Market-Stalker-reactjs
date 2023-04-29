@@ -20,7 +20,6 @@ const Cryptos = () => {
       const crypto_data_url = `https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=10&offset=0`;
       const crypto_data_url_response = await fetch(crypto_data_url, options);
       const crypto_data = await crypto_data_url_response.json();
-      console.log(crypto_data.data.coins);
       set_crypto_data(crypto_data.data.coins);
       setIsLoading(false);
     };
@@ -71,7 +70,7 @@ const Cryptos = () => {
               crypto?.map((crypto_detail) => {
                 return (
                   <tr className="bg-white border-b md:flex">
-                    <th
+                    <th key="{item}" 
                       scope="row"
                       className="px-6 py-4 font-medium md:flex md:justify-center md:w-[12rem]"
                     >
@@ -82,17 +81,17 @@ const Cryptos = () => {
                         className="h-[2rem] w-auto"
                       />
                     </th>
-                    <td className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
+                    <td  key="{item}" className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
                       {crypto_detail?.name}
                     </td>
 
-                    <td className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
+                    <td key="{item}"  className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
                       {crypto_detail?.price}
                     </td>
-                    <td className="px-6 py-3 md:flex md:justify-center md:w-[12rem]">
+                    <td key="{item}"  className="px-6 py-3 md:flex md:justify-center md:w-[12rem]">
                       {crypto_detail?.change}
                     </td>
-                    <td className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
+                    <td key="{item}"  className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
                       {crypto_detail?.marketCap}
                     </td>
                   </tr>

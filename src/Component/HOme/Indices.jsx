@@ -24,7 +24,6 @@ const Indices = () => {
         options
       );
       const stock_indices_data = await stock_indices_url_response.json();
-      console.log(stock_indices_data);
       set_stock_indices(stock_indices_data);
       setIsLoading(false);
     };
@@ -82,25 +81,25 @@ const Indices = () => {
               stock_index?.slice(0, 10).map((index_data) => {
                 return (
                   <tr className="bg-white border-b md:flex">
-                    <th
+                    <th   
                       scope="row"
                       className="px-6 py-4 font-medium md:flex md:justify-center md:w-[12rem]"
                     >
                       {index_data?.name}
                     </th>
-                    <td className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
+                    <td   className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
                       {index_data?.high}
                     </td>
-                    <td className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
+                    <td   className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
                       {index_data?.low}
                     </td>
-                    <td className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
+                    <td   className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
                       {index_data?.last}
                     </td>
-                    <td className="px-6 py-3 md:flex md:justify-center md:w-[12rem]">
+                    <td   className="px-6 py-3 md:flex md:justify-center md:w-[12rem]">
                       {index_data?.changePercentage}
                     </td>
-                    <td className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
+                    <td  className="px-6 py-3 md:flex md:justify-center md:w-[12rem] hidden">
                       {index_data?.time}
                     </td>
                   </tr>

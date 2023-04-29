@@ -1,70 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+import menu_icon from "./menu.png";
+import close_icon from "./close.png";
 
 const Home = () => {
+  const [menudisplay, setmenudisplay] = useState("block");
+  const [closedisplay, setclosedisplay] = useState("hidden");
+  const [navdisplay, setnavdisplay] = useState("hidden");
+
+  function showmenu() {
+    if (menudisplay === "block") {
+      setnavdisplay("block");
+      setclosedisplay("block");
+      setmenudisplay("hidden");
+    }
+  }
+  function closemenu() {
+    if (menudisplay === "hidden") {
+      setnavdisplay("hidden");
+      setclosedisplay("hidden");
+      setmenudisplay("block");
+    }
+  }
+
   return (
     <>
       <section className="home_nav pt-[3rem]">
-        <nav className="bg-white border-gray-200  md:flex md:justify-center ">
-          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            
-            <button
-              data-collapse-toggle="navbar-default"
-              type="button"
-              className="inline-flex items-center p-1 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400  dark:focus:ring-gray-600"
-              aria-controls="navbar-default"
-              aria-expanded="false"
-            >
-              <span className="sr-only">Open main menu</span>
-              <svg
-                className="w-6 h-6"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </button>
-            <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-              <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-white  md:dark:bg-gray-900 dark:border-gray-700">
-                <li className="my-1">
-                  <Link
-                    to="/market/indices"
-                    className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                    aria-current="page"
-                  >
-                    Stocks Index
-                  </Link>
-                </li>
-                <li  className="my-1">
-                <Link
-                    to="/market/cryptos"
-                    className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                    aria-current="page"
-                  >
-                    Cryptos
-                  </Link>
-                </li>
-                <li className="my-1">
-                <Link
-                    to="/market/indianstock"
-                    className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                    aria-current="page"
-                  >
-                    Indian Stock
-                  </Link>
-              </li>
-              </ul>
+        <div className="nav p-3">
+          <div className="nav_link">
+            <div className="nav_icon md:hidden   block">
+              <img
+                src={menu_icon}
+                alt=""
+                srcset=""
+                className={"h-[2rem] bg-slate-300 border rounded-lg p-1 mx-2 " + menudisplay}
+                onClick={showmenu}
+              />
+              <img
+                src={close_icon}
+                alt=""
+                srcset=""
+                className={"h-[2rem] bg-slate-300 border rounded-lg p-1 mx-2 " + closedisplay}
+                onClick={closemenu}
+              />
             </div>
+            <ul
+              className={
+                "nav_item md:flex md:gap-5 md:justify-center flex flex-col bg-white border rounded-md border-gray-900 p-2 my-2 " +
+                navdisplay
+              }
+            >
+              <li className="links  text-white bg-blue-700 p-1"><Link to="/market/indices"> Stocks Index</Link>  </li>
+              <li className="links  text-white bg-blue-700 my-1 p-1"><Link to="/market/cryptos">Cryptos </Link></li>
+              <li className="links  text-white bg-blue-700 p-1"><Link to="/market/indianstock"> Indian Stock</Link></li>
+            </ul>
           </div>
-        </nav>
+        </div>
+
+        
       </section>
-    <Outlet />
+      <Outlet />
     </>
   );
 };

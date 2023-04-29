@@ -29,7 +29,7 @@ const Navbar = () => {
         <div className="nav-content flex items-center w-[80%] justify-between">
           <div className="nav-banner">
             <h1 className="text-2xl text-white">
-              <Link to="/">Stock It</Link>
+              <Link to="/">Market Stalker</Link>
             </h1>
           </div>
           <div

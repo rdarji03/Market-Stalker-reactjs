@@ -3,9 +3,9 @@ import loader from "./loader.gif"
 const Loader = () => {
   return (
     <>
-      <section className="screen_loader">
+      <div className="screen_loader">
         <img src={loader} alt="" />
-      </section>
+      </div>
     </>
   );
 };
