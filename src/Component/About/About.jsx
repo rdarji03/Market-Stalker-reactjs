@@ -55,7 +55,7 @@ const About = () => {
               <ul className="smedia_links flex items-center">
                 <li>
                   <a
-                    href="https://www.instagram.com/r_darji03/"
+                    href="https://www.instagram.com/plantgeek0319/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
