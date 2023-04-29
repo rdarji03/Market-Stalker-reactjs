@@ -10,7 +10,7 @@ const Footer = () => {
         <ul className="smedia_links flex justify-center my-3 gap-3">
           <li className="border rounded-lg p-2">
             <a
-              href="https://www.instagram.com/r_darji03/"
+              href="https://www.instagram.com/plantgeek0319/"
               target="_blank"
               rel="noopener noreferrer"
               className=" text-white"
